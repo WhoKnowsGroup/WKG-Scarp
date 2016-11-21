@@ -1,0 +1,34 @@
+{
+    "webScrapperApp": {
+        "raceInfo" : {
+            "home": {
+                "title": "Race Infos",
+                "createLabel": "Create a new Race Info",
+                "createOrEditLabel": "Create or edit a Race Info",
+                "search": "Search for Race Info"
+            },
+            "created": "A new Race Info is created with identifier {{ param }}",
+            "updated": "A Race Info is updated with identifier {{ param }}",
+            "deleted": "A Race Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Race Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Race Info"
+            },
+            "raceName": "Race Name",
+            "raceDescription": "Race Description",
+            "createdDate": "Created Date",
+            "city": "City",
+            "state": "State",
+            "startPosition": "Start Position",
+            "finishPosition": "Finish Position",
+            "horseName": "Horse Name",
+            "trainer": "Trainer",
+            "jockey": "Jockey",
+            "margin": "Margin",
+            "penalty": "Penalty",
+            "startingPrice": "Starting Price"
+        }
+    }
+}

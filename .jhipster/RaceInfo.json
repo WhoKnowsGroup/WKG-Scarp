@@ -1,0 +1,63 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "raceName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "raceDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startPosition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "finishPosition",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "horseName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "trainer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "jockey",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "margin",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "penalty",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startingPrice",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161121051639",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "race_info",
+    "pagination": "no"
+}

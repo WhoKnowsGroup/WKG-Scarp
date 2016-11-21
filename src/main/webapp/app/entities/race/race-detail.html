@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="webScrapperApp.race.detail.title">Race</span> {{vm.race.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="webScrapperApp.race.raceName">Race Name</span></dt>
+        <dd>
+            <span>{{vm.race.raceName}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.race.city">City</span></dt>
+        <dd>
+            <span>{{vm.race.city}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.race.raceDescription">Race Description</span></dt>
+        <dd>
+            <span>{{vm.race.raceDescription}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.race.state">State</span></dt>
+        <dd>
+            <span>{{vm.race.state}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.race.raceDate">Race Date</span></dt>
+        <dd>
+            <span>{{vm.race.raceDate | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="race-detail.edit({id:vm.race.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

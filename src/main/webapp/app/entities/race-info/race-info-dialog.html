@@ -1,0 +1,108 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRaceInfoLabel" data-translate="webScrapperApp.raceInfo.home.createOrEditLabel">Create or edit a Race Info</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.raceInfo.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.raceInfo.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.raceName" for="field_raceName">Race Name</label>
+            <input type="text" class="form-control" name="raceName" id="field_raceName"
+                    ng-model="vm.raceInfo.raceName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.raceDescription" for="field_raceDescription">Race Description</label>
+            <input type="text" class="form-control" name="raceDescription" id="field_raceDescription"
+                    ng-model="vm.raceInfo.raceDescription"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.createdDate" for="field_createdDate">Created Date</label>
+                <div class="input-group">
+                    <input id="field_createdDate" type="text" class="form-control" name="createdDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.raceInfo.createdDate" is-open="vm.datePickerOpenStatus.createdDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('createdDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.city" for="field_city">City</label>
+            <input type="text" class="form-control" name="city" id="field_city"
+                    ng-model="vm.raceInfo.city"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.state" for="field_state">State</label>
+            <input type="text" class="form-control" name="state" id="field_state"
+                    ng-model="vm.raceInfo.state"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.startPosition" for="field_startPosition">Start Position</label>
+            <input type="number" class="form-control" name="startPosition" id="field_startPosition"
+                    ng-model="vm.raceInfo.startPosition"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.finishPosition" for="field_finishPosition">Finish Position</label>
+            <input type="number" class="form-control" name="finishPosition" id="field_finishPosition"
+                    ng-model="vm.raceInfo.finishPosition"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.horseName" for="field_horseName">Horse Name</label>
+            <input type="text" class="form-control" name="horseName" id="field_horseName"
+                    ng-model="vm.raceInfo.horseName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.trainer" for="field_trainer">Trainer</label>
+            <input type="text" class="form-control" name="trainer" id="field_trainer"
+                    ng-model="vm.raceInfo.trainer"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.jockey" for="field_jockey">Jockey</label>
+            <input type="text" class="form-control" name="jockey" id="field_jockey"
+                    ng-model="vm.raceInfo.jockey"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.margin" for="field_margin">Margin</label>
+            <input type="number" class="form-control" name="margin" id="field_margin"
+                    ng-model="vm.raceInfo.margin"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.penalty" for="field_penalty">Penalty</label>
+            <input type="text" class="form-control" name="penalty" id="field_penalty"
+                    ng-model="vm.raceInfo.penalty"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.raceInfo.startingPrice" for="field_startingPrice">Starting Price</label>
+            <input type="text" class="form-control" name="startingPrice" id="field_startingPrice"
+                    ng-model="vm.raceInfo.startingPrice"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

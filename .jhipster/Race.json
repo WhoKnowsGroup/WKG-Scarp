@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "raceInfo",
+            "otherEntityName": "raceInfo",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "race"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "raceName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "raceDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "state",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "raceDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "changelogDate": "20161121174300",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "race",
+    "pagination": "no"
+}

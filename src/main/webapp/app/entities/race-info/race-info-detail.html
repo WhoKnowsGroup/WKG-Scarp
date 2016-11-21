@@ -1,0 +1,71 @@
+
+<div>
+    <h2><span data-translate="webScrapperApp.raceInfo.detail.title">Race Info</span> {{vm.raceInfo.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="webScrapperApp.raceInfo.raceName">Race Name</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.raceName}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.raceDescription">Race Description</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.raceDescription}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.createdDate">Created Date</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.createdDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.city">City</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.city}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.state">State</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.state}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.startPosition">Start Position</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.startPosition}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.finishPosition">Finish Position</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.finishPosition}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.horseName">Horse Name</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.horseName}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.trainer">Trainer</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.trainer}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.jockey">Jockey</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.jockey}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.margin">Margin</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.margin}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.penalty">Penalty</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.penalty}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.raceInfo.startingPrice">Starting Price</span></dt>
+        <dd>
+            <span>{{vm.raceInfo.startingPrice}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="race-info-detail.edit({id:vm.raceInfo.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>
