@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "oldName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "newName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateChanged",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "ageAndBreed",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161123181940",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "renamed_horses",
+    "pagination": "no"
+}

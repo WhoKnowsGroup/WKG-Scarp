@@ -8,6 +8,7 @@
     <include file="classpath:config/liquibase/changelog/20161121051639_added_entity_RaceInfo.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161121174300_added_entity_Race.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161123171126_added_entity_Horse.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161123181940_added_entity_RenamedHorses.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

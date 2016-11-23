@@ -1,0 +1,54 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myRenamedHorsesLabel" data-translate="webScrapperApp.renamedHorses.home.createOrEditLabel">Create or edit a Renamed Horses</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.renamedHorses.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.renamedHorses.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.renamedHorses.oldName" for="field_oldName">Old Name</label>
+            <input type="text" class="form-control" name="oldName" id="field_oldName"
+                    ng-model="vm.renamedHorses.oldName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.renamedHorses.newName" for="field_newName">New Name</label>
+            <input type="text" class="form-control" name="newName" id="field_newName"
+                    ng-model="vm.renamedHorses.newName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.renamedHorses.dateChanged" for="field_dateChanged">Date Changed</label>
+                <div class="input-group">
+                    <input id="field_dateChanged" type="text" class="form-control" name="dateChanged" uib-datepicker-popup="{{dateformat}}" ng-model="vm.renamedHorses.dateChanged" is-open="vm.datePickerOpenStatus.dateChanged"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateChanged')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.renamedHorses.ageAndBreed" for="field_ageAndBreed">Age And Breed</label>
+            <input type="text" class="form-control" name="ageAndBreed" id="field_ageAndBreed"
+                    ng-model="vm.renamedHorses.ageAndBreed"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

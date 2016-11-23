@@ -10,6 +10,7 @@
                 "raceInfo": "Race Info",
                 "race": "Race",
                 "horse": "Horse",
+                "renamedHorses": "Renamed Horses",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

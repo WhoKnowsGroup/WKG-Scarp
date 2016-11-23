@@ -1,0 +1,25 @@
+{
+    "webScrapperApp": {
+        "renamedHorses" : {
+            "home": {
+                "title": "Renamed Horses",
+                "createLabel": "Create a new Renamed Horses",
+                "createOrEditLabel": "Create or edit a Renamed Horses",
+                "search": "Search for Renamed Horses"
+            },
+            "created": "A new Renamed Horses is created with identifier {{ param }}",
+            "updated": "A Renamed Horses is updated with identifier {{ param }}",
+            "deleted": "A Renamed Horses is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Renamed Horses {{ id }}?"
+            },
+            "detail": {
+                "title": "Renamed Horses"
+            },
+            "oldName": "Old Name",
+            "newName": "New Name",
+            "dateChanged": "Date Changed",
+            "ageAndBreed": "Age And Breed"
+        }
+    }
+}
