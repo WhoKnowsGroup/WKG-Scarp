@@ -1,16 +1,14 @@
 package com.webscrapper.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  * A Horse.
@@ -75,6 +73,26 @@ public class Horse implements Serializable {
 
     @Column(name = "position_in_last_race")
     private Integer positionInLastRace;
+
+    @Column(name = "firm")
+    private String firm;
+
+    @Column(name = "good")
+    private String good;
+
+    @Column(name = "soft")
+    private String soft;
+
+    @Column(name = "heavy")
+    private String heavy;
+
+    @OneToMany(mappedBy = "horse")
+    @JsonIgnore
+    private Set<Race> races = new HashSet<>();
+
+    @OneToMany(mappedBy = "horse")
+    @JsonIgnore
+    private Set<RaceInfo> raceInfos = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -305,6 +323,108 @@ public class Horse implements Serializable {
         this.positionInLastRace = positionInLastRace;
     }
 
+    public String getFirm() {
+        return firm;
+    }
+
+    public Horse firm(String firm) {
+        this.firm = firm;
+        return this;
+    }
+
+    public void setFirm(String firm) {
+        this.firm = firm;
+    }
+
+    public String getGood() {
+        return good;
+    }
+
+    public Horse good(String good) {
+        this.good = good;
+        return this;
+    }
+
+    public void setGood(String good) {
+        this.good = good;
+    }
+
+    public String getSoft() {
+        return soft;
+    }
+
+    public Horse soft(String soft) {
+        this.soft = soft;
+        return this;
+    }
+
+    public void setSoft(String soft) {
+        this.soft = soft;
+    }
+
+    public String getHeavy() {
+        return heavy;
+    }
+
+    public Horse heavy(String heavy) {
+        this.heavy = heavy;
+        return this;
+    }
+
+    public void setHeavy(String heavy) {
+        this.heavy = heavy;
+    }
+
+    public Set<Race> getRaces() {
+        return races;
+    }
+
+    public Horse races(Set<Race> races) {
+        this.races = races;
+        return this;
+    }
+
+    public Horse addRace(Race race) {
+        races.add(race);
+        race.setHorse(this);
+        return this;
+    }
+
+    public Horse removeRace(Race race) {
+        races.remove(race);
+        race.setHorse(null);
+        return this;
+    }
+
+    public void setRaces(Set<Race> races) {
+        this.races = races;
+    }
+
+    public Set<RaceInfo> getRaceInfos() {
+        return raceInfos;
+    }
+
+    public Horse raceInfos(Set<RaceInfo> raceInfos) {
+        this.raceInfos = raceInfos;
+        return this;
+    }
+
+    public Horse addRaceInfo(RaceInfo raceInfo) {
+        raceInfos.add(raceInfo);
+        raceInfo.setHorse(this);
+        return this;
+    }
+
+    public Horse removeRaceInfo(RaceInfo raceInfo) {
+        raceInfos.remove(raceInfo);
+        raceInfo.setHorse(null);
+        return this;
+    }
+
+    public void setRaceInfos(Set<RaceInfo> raceInfos) {
+        this.raceInfos = raceInfos;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -346,6 +466,10 @@ public class Horse implements Serializable {
             ", horseDist='" + horseDist + "'" +
             ", horseClass='" + horseClass + "'" +
             ", positionInLastRace='" + positionInLastRace + "'" +
+            ", firm='" + firm + "'" +
+            ", good='" + good + "'" +
+            ", soft='" + soft + "'" +
+            ", heavy='" + heavy + "'" +
             '}';
     }
 }
