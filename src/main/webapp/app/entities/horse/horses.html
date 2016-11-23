@@ -1,0 +1,96 @@
+<div>
+    <h2 data-translate="webScrapperApp.horse.home.title">Horses</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="horse.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="webScrapperApp.horse.home.createLabel">
+                        Create new Horse
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="webScrapperApp.horse.horseName">Horse Name</span></th>
+                    <th><span data-translate="webScrapperApp.horse.horseStatus">Horse Status</span></th>
+                    <th><span data-translate="webScrapperApp.horse.birthDate">Birth Date</span></th>
+                    <th><span data-translate="webScrapperApp.horse.owner">Owner</span></th>
+                    <th><span data-translate="webScrapperApp.horse.stewardsEmbargoes">Stewards Embargoes</span></th>
+                    <th><span data-translate="webScrapperApp.horse.emergencyVaccinationRecordURL">Emergency Vaccination Record URL</span></th>
+                    <th><span data-translate="webScrapperApp.horse.lastGearChange">Last Gear Change</span></th>
+                    <th><span data-translate="webScrapperApp.horse.trainer">Trainer</span></th>
+                    <th><span data-translate="webScrapperApp.horse.prize">Prize</span></th>
+                    <th><span data-translate="webScrapperApp.horse.bonus">Bonus</span></th>
+                    <th><span data-translate="webScrapperApp.horse.mimMaxDistWin">Mim Max Dist Win</span></th>
+                    <th><span data-translate="webScrapperApp.horse.firstUpData">First Up Data</span></th>
+                    <th><span data-translate="webScrapperApp.horse.secondUpData">Second Up Data</span></th>
+                    <th><span data-translate="webScrapperApp.horse.horseTrack">Horse Track</span></th>
+                    <th><span data-translate="webScrapperApp.horse.horseDist">Horse Dist</span></th>
+                    <th><span data-translate="webScrapperApp.horse.horseClass">Horse Class</span></th>
+                    <th><span data-translate="webScrapperApp.horse.positionInLastRace">Position In Last Race</span></th>
+                    <th><span data-translate="webScrapperApp.horse.firm">Firm</span></th>
+                    <th><span data-translate="webScrapperApp.horse.good">Good</span></th>
+                    <th><span data-translate="webScrapperApp.horse.soft">Soft</span></th>
+                    <th><span data-translate="webScrapperApp.horse.heavy">Heavy</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="horse in vm.horses track by horse.id">
+                    <td><a ui-sref="horse-detail({id:horse.id})">{{horse.id}}</a></td>
+                    <td>{{horse.horseName}}</td>
+                    <td>{{horse.horseStatus}}</td>
+                        <td>{{horse.birthDate | date:'mediumDate'}}</td>
+                    <td>{{horse.owner}}</td>
+                    <td>{{horse.stewardsEmbargoes}}</td>
+                    <td>{{horse.emergencyVaccinationRecordURL}}</td>
+                        <td>{{horse.lastGearChange | date:'mediumDate'}}</td>
+                    <td>{{horse.trainer}}</td>
+                    <td>{{horse.prize}}</td>
+                    <td>{{horse.bonus}}</td>
+                    <td>{{horse.mimMaxDistWin}}</td>
+                    <td>{{horse.firstUpData}}</td>
+                    <td>{{horse.secondUpData}}</td>
+                    <td>{{horse.horseTrack}}</td>
+                    <td>{{horse.horseDist}}</td>
+                    <td>{{horse.horseClass}}</td>
+                    <td>{{horse.positionInLastRace}}</td>
+                    <td>{{horse.firm}}</td>
+                    <td>{{horse.good}}</td>
+                    <td>{{horse.soft}}</td>
+                    <td>{{horse.heavy}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="horse-detail({id:horse.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="horse.edit({id:horse.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="horse.delete({id:horse.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

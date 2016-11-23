@@ -1,0 +1,103 @@
+
+<div>
+    <h2><span data-translate="webScrapperApp.horse.detail.title">Horse</span> {{vm.horse.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="webScrapperApp.horse.horseName">Horse Name</span></dt>
+        <dd>
+            <span>{{vm.horse.horseName}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.horseStatus">Horse Status</span></dt>
+        <dd>
+            <span>{{vm.horse.horseStatus}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.birthDate">Birth Date</span></dt>
+        <dd>
+            <span>{{vm.horse.birthDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.owner">Owner</span></dt>
+        <dd>
+            <span>{{vm.horse.owner}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.stewardsEmbargoes">Stewards Embargoes</span></dt>
+        <dd>
+            <span>{{vm.horse.stewardsEmbargoes}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.emergencyVaccinationRecordURL">Emergency Vaccination Record URL</span></dt>
+        <dd>
+            <span>{{vm.horse.emergencyVaccinationRecordURL}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.lastGearChange">Last Gear Change</span></dt>
+        <dd>
+            <span>{{vm.horse.lastGearChange | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.trainer">Trainer</span></dt>
+        <dd>
+            <span>{{vm.horse.trainer}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.prize">Prize</span></dt>
+        <dd>
+            <span>{{vm.horse.prize}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.bonus">Bonus</span></dt>
+        <dd>
+            <span>{{vm.horse.bonus}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.mimMaxDistWin">Mim Max Dist Win</span></dt>
+        <dd>
+            <span>{{vm.horse.mimMaxDistWin}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.firstUpData">First Up Data</span></dt>
+        <dd>
+            <span>{{vm.horse.firstUpData}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.secondUpData">Second Up Data</span></dt>
+        <dd>
+            <span>{{vm.horse.secondUpData}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.horseTrack">Horse Track</span></dt>
+        <dd>
+            <span>{{vm.horse.horseTrack}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.horseDist">Horse Dist</span></dt>
+        <dd>
+            <span>{{vm.horse.horseDist}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.horseClass">Horse Class</span></dt>
+        <dd>
+            <span>{{vm.horse.horseClass}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.positionInLastRace">Position In Last Race</span></dt>
+        <dd>
+            <span>{{vm.horse.positionInLastRace}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.firm">Firm</span></dt>
+        <dd>
+            <span>{{vm.horse.firm}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.good">Good</span></dt>
+        <dd>
+            <span>{{vm.horse.good}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.soft">Soft</span></dt>
+        <dd>
+            <span>{{vm.horse.soft}}</span>
+        </dd>
+        <dt><span data-translate="webScrapperApp.horse.heavy">Heavy</span></dt>
+        <dd>
+            <span>{{vm.horse.heavy}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="horse-detail.edit({id:vm.horse.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-xs hidden-sm" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

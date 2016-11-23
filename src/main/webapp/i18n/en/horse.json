@@ -1,0 +1,44 @@
+{
+    "webScrapperApp": {
+        "horse" : {
+            "home": {
+                "title": "Horses",
+                "createLabel": "Create a new Horse",
+                "createOrEditLabel": "Create or edit a Horse",
+                "search": "Search for Horse"
+            },
+            "created": "A new Horse is created with identifier {{ param }}",
+            "updated": "A Horse is updated with identifier {{ param }}",
+            "deleted": "A Horse is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Horse {{ id }}?"
+            },
+            "detail": {
+                "title": "Horse"
+            },
+            "horseName": "Horse Name",
+            "horseStatus": "Horse Status",
+            "birthDate": "Birth Date",
+            "owner": "Owner",
+            "stewardsEmbargoes": "Stewards Embargoes",
+            "emergencyVaccinationRecordURL": "Emergency Vaccination Record URL",
+            "lastGearChange": "Last Gear Change",
+            "trainer": "Trainer",
+            "prize": "Prize",
+            "bonus": "Bonus",
+            "mimMaxDistWin": "Mim Max Dist Win",
+            "firstUpData": "First Up Data",
+            "secondUpData": "Second Up Data",
+            "horseTrack": "Horse Track",
+            "horseDist": "Horse Dist",
+            "horseClass": "Horse Class",
+            "positionInLastRace": "Position In Last Race",
+            "firm": "Firm",
+            "good": "Good",
+            "soft": "Soft",
+            "heavy": "Heavy",
+            "race": "Race",
+            "raceInfo": "Race Info"
+        }
+    }
+}

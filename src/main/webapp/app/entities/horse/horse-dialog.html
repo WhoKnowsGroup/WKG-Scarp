@@ -1,0 +1,160 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myHorseLabel" data-translate="webScrapperApp.horse.home.createOrEditLabel">Create or edit a Horse</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.horse.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.horse.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.horseName" for="field_horseName">Horse Name</label>
+            <input type="text" class="form-control" name="horseName" id="field_horseName"
+                    ng-model="vm.horse.horseName"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.horseStatus" for="field_horseStatus">Horse Status</label>
+            <input type="text" class="form-control" name="horseStatus" id="field_horseStatus"
+                    ng-model="vm.horse.horseStatus"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.birthDate" for="field_birthDate">Birth Date</label>
+                <div class="input-group">
+                    <input id="field_birthDate" type="text" class="form-control" name="birthDate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.horse.birthDate" is-open="vm.datePickerOpenStatus.birthDate"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('birthDate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.owner" for="field_owner">Owner</label>
+            <input type="text" class="form-control" name="owner" id="field_owner"
+                    ng-model="vm.horse.owner"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.stewardsEmbargoes" for="field_stewardsEmbargoes">Stewards Embargoes</label>
+            <input type="text" class="form-control" name="stewardsEmbargoes" id="field_stewardsEmbargoes"
+                    ng-model="vm.horse.stewardsEmbargoes"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.emergencyVaccinationRecordURL" for="field_emergencyVaccinationRecordURL">Emergency Vaccination Record URL</label>
+            <input type="text" class="form-control" name="emergencyVaccinationRecordURL" id="field_emergencyVaccinationRecordURL"
+                    ng-model="vm.horse.emergencyVaccinationRecordURL"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.lastGearChange" for="field_lastGearChange">Last Gear Change</label>
+                <div class="input-group">
+                    <input id="field_lastGearChange" type="text" class="form-control" name="lastGearChange" uib-datepicker-popup="{{dateformat}}" ng-model="vm.horse.lastGearChange" is-open="vm.datePickerOpenStatus.lastGearChange"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('lastGearChange')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.trainer" for="field_trainer">Trainer</label>
+            <input type="text" class="form-control" name="trainer" id="field_trainer"
+                    ng-model="vm.horse.trainer"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.prize" for="field_prize">Prize</label>
+            <input type="number" class="form-control" name="prize" id="field_prize"
+                    ng-model="vm.horse.prize"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.bonus" for="field_bonus">Bonus</label>
+            <input type="number" class="form-control" name="bonus" id="field_bonus"
+                    ng-model="vm.horse.bonus"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.mimMaxDistWin" for="field_mimMaxDistWin">Mim Max Dist Win</label>
+            <input type="text" class="form-control" name="mimMaxDistWin" id="field_mimMaxDistWin"
+                    ng-model="vm.horse.mimMaxDistWin"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.firstUpData" for="field_firstUpData">First Up Data</label>
+            <input type="text" class="form-control" name="firstUpData" id="field_firstUpData"
+                    ng-model="vm.horse.firstUpData"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.secondUpData" for="field_secondUpData">Second Up Data</label>
+            <input type="text" class="form-control" name="secondUpData" id="field_secondUpData"
+                    ng-model="vm.horse.secondUpData"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.horseTrack" for="field_horseTrack">Horse Track</label>
+            <input type="text" class="form-control" name="horseTrack" id="field_horseTrack"
+                    ng-model="vm.horse.horseTrack"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.horseDist" for="field_horseDist">Horse Dist</label>
+            <input type="text" class="form-control" name="horseDist" id="field_horseDist"
+                    ng-model="vm.horse.horseDist"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.horseClass" for="field_horseClass">Horse Class</label>
+            <input type="text" class="form-control" name="horseClass" id="field_horseClass"
+                    ng-model="vm.horse.horseClass"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.positionInLastRace" for="field_positionInLastRace">Position In Last Race</label>
+            <input type="number" class="form-control" name="positionInLastRace" id="field_positionInLastRace"
+                    ng-model="vm.horse.positionInLastRace"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.firm" for="field_firm">Firm</label>
+            <input type="text" class="form-control" name="firm" id="field_firm"
+                    ng-model="vm.horse.firm"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.good" for="field_good">Good</label>
+            <input type="text" class="form-control" name="good" id="field_good"
+                    ng-model="vm.horse.good"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.soft" for="field_soft">Soft</label>
+            <input type="text" class="form-control" name="soft" id="field_soft"
+                    ng-model="vm.horse.soft"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="webScrapperApp.horse.heavy" for="field_heavy">Heavy</label>
+            <input type="text" class="form-control" name="heavy" id="field_heavy"
+                    ng-model="vm.horse.heavy"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
