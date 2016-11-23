@@ -86,14 +86,6 @@ public class Horse implements Serializable {
     @Column(name = "heavy")
     private String heavy;
 
-    @OneToMany(mappedBy = "horse")
-    @JsonIgnore
-    private Set<Race> races = new HashSet<>();
-
-    @OneToMany(mappedBy = "horse")
-    @JsonIgnore
-    private Set<RaceInfo> raceInfos = new HashSet<>();
-
     public Long getId() {
         return id;
     }
@@ -375,55 +367,6 @@ public class Horse implements Serializable {
         this.heavy = heavy;
     }
 
-    public Set<Race> getRaces() {
-        return races;
-    }
-
-    public Horse races(Set<Race> races) {
-        this.races = races;
-        return this;
-    }
-
-    public Horse addRace(Race race) {
-        races.add(race);
-        race.setHorse(this);
-        return this;
-    }
-
-    public Horse removeRace(Race race) {
-        races.remove(race);
-        race.setHorse(null);
-        return this;
-    }
-
-    public void setRaces(Set<Race> races) {
-        this.races = races;
-    }
-
-    public Set<RaceInfo> getRaceInfos() {
-        return raceInfos;
-    }
-
-    public Horse raceInfos(Set<RaceInfo> raceInfos) {
-        this.raceInfos = raceInfos;
-        return this;
-    }
-
-    public Horse addRaceInfo(RaceInfo raceInfo) {
-        raceInfos.add(raceInfo);
-        raceInfo.setHorse(this);
-        return this;
-    }
-
-    public Horse removeRaceInfo(RaceInfo raceInfo) {
-        raceInfos.remove(raceInfo);
-        raceInfo.setHorse(null);
-        return this;
-    }
-
-    public void setRaceInfos(Set<RaceInfo> raceInfos) {
-        this.raceInfos = raceInfos;
-    }
 
     @Override
     public boolean equals(Object o) {

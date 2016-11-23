@@ -1,0 +1,108 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "race",
+            "otherEntityName": "race",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "horse"
+        },
+        {
+            "relationshipName": "raceInfo",
+            "otherEntityName": "raceInfo",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "horse"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "horseName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "horseStatus",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "owner",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stewardsEmbargoes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "emergencyVaccinationRecordURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lastGearChange",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "trainer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prize",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "bonus",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "mimMaxDistWin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "firstUpData",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "secondUpData",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "horseTrack",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "horseDist",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "horseClass",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "positionInLastRace",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "firm",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "good",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soft",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "heavy",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161123171126",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "horse",
+    "pagination": "no"
+}
