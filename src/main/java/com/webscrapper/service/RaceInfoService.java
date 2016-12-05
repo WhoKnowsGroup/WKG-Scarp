@@ -38,4 +38,9 @@ public interface RaceInfoService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+    
+    List<RaceInfo> findByRaceId(Long race_id);
+   
+
+	List<RaceInfo> findByState(String state);
 }

@@ -38,6 +38,27 @@ public class Race implements Serializable {
 
     @Column(name = "race_date")
     private LocalDate raceDate;
+    
+    private String race_time;
+    
+    private String race_length;
+
+
+    public String getRace_time() {
+		return race_time;
+	}
+
+	public void setRace_time(String race_time) {
+		this.race_time = race_time;
+	}
+
+	public String getRace_length() {
+		return race_length;
+	}
+
+	public void setRace_length(String race_length) {
+		this.race_length = race_length;
+	}
 
     public Long getId() {
         return id;

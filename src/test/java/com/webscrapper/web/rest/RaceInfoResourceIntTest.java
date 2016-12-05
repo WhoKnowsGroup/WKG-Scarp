@@ -71,8 +71,8 @@ public class RaceInfoResourceIntTest {
     private static final String DEFAULT_JOCKEY = "AAAAA";
     private static final String UPDATED_JOCKEY = "BBBBB";
 
-    private static final Long DEFAULT_MARGIN = 1L;
-    private static final Long UPDATED_MARGIN = 2L;
+    private static final String DEFAULT_MARGIN = "1L";
+    private static final String UPDATED_MARGIN = "2L";
 
     private static final String DEFAULT_PENALTY = "AAAAA";
     private static final String UPDATED_PENALTY = "BBBBB";
@@ -181,7 +181,7 @@ public class RaceInfoResourceIntTest {
                 .andExpect(jsonPath("$.[*].horseName").value(hasItem(DEFAULT_HORSE_NAME.toString())))
                 .andExpect(jsonPath("$.[*].trainer").value(hasItem(DEFAULT_TRAINER.toString())))
                 .andExpect(jsonPath("$.[*].jockey").value(hasItem(DEFAULT_JOCKEY.toString())))
-                .andExpect(jsonPath("$.[*].margin").value(hasItem(DEFAULT_MARGIN.intValue())))
+                .andExpect(jsonPath("$.[*].margin").value(hasItem(DEFAULT_MARGIN.toString())))
                 .andExpect(jsonPath("$.[*].penalty").value(hasItem(DEFAULT_PENALTY.toString())))
                 .andExpect(jsonPath("$.[*].startingPrice").value(hasItem(DEFAULT_STARTING_PRICE.toString())));
     }
@@ -207,7 +207,7 @@ public class RaceInfoResourceIntTest {
             .andExpect(jsonPath("$.horseName").value(DEFAULT_HORSE_NAME.toString()))
             .andExpect(jsonPath("$.trainer").value(DEFAULT_TRAINER.toString()))
             .andExpect(jsonPath("$.jockey").value(DEFAULT_JOCKEY.toString()))
-            .andExpect(jsonPath("$.margin").value(DEFAULT_MARGIN.intValue()))
+            .andExpect(jsonPath("$.margin").value(DEFAULT_MARGIN.toString()))
             .andExpect(jsonPath("$.penalty").value(DEFAULT_PENALTY.toString()))
             .andExpect(jsonPath("$.startingPrice").value(DEFAULT_STARTING_PRICE.toString()));
     }

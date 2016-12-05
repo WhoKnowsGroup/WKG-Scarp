@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.webscrapper.service.HorseService;
 import com.webscrapper.service.RaceInfoService;
 import com.webscrapper.service.RaceService;
 
@@ -35,15 +36,23 @@ public class ScheduledTasks {
     @Inject
     private RaceService raceService;
     
+    @Inject
+    private HorseService horseService;
+    
     /**
      * Note the cron rejex to schedule to execute at 10 pm
      */
-    @Scheduled(cron = "0/30 * * * * *")
+    @Scheduled(cron = "0/50 * * * * *")
     public void sendDailyJournalSummaryEmail() {
         log.info("The scheduled task to send email notificaitons - begins @ ", dateFormat.format(new Date()));
+        /*RacingAustraliaSiteScrapper scrap =new RacingAustraliaSiteScrapper(service, raceService);
+        scrap.readWebsite();*/
+        
+        PuntersDataScraper punter = new PuntersDataScraper();
+        punter.readWebsite();
 
-        RacingAustraliaSiteScrapper scrap =new RacingAustraliaSiteScrapper(service, raceService);
-        scrap.readWebsite();
+        /*RAHorseDataScrapper scrapHorse=new RAHorseDataScrapper(horseService);
+        scrapHorse.gatherHorseData();*/
        
         log.info("The scheduled task to send email notificaitons - ends @ ", dateFormat.format(new Date()));
     }

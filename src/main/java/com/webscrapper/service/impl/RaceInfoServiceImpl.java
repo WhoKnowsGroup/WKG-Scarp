@@ -3,12 +3,14 @@ package com.webscrapper.service.impl;
 import com.webscrapper.service.RaceInfoService;
 import com.webscrapper.domain.RaceInfo;
 import com.webscrapper.repository.RaceInfoRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+
 import java.util.List;
 
 /**
@@ -60,7 +62,23 @@ public class RaceInfoServiceImpl implements RaceInfoService{
         RaceInfo raceInfo = raceInfoRepository.findOne(id);
         return raceInfo;
     }
+    
+    
+    @Transactional(readOnly = true) 
+    public List<RaceInfo> findByRaceId(Long id) {
+        log.debug("Request to get RaceInfo : {}", id);
+        List<RaceInfo> raceInfo = raceInfoRepository.findByRaceId(id);
+        return raceInfo;
+    }
 
+    @Transactional(readOnly = true) 
+	public List<RaceInfo> findByState(String state) {
+		System.out.println("in calling repository");
+		List<RaceInfo> raceInfo = raceInfoRepository.findByState(state);
+		System.out.println(raceInfo.size());
+		return null;
+	}
+    
     /**
      *  Delete the  raceInfo by id.
      *
@@ -70,4 +88,6 @@ public class RaceInfoServiceImpl implements RaceInfoService{
         log.debug("Request to delete RaceInfo : {}", id);
         raceInfoRepository.delete(id);
     }
+
+	
 }

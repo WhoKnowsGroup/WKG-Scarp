@@ -24,6 +24,24 @@ public class RaceInfo implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @Column(name = "race_id")
+    private Long race_id;
+    
+    @Column(name = "source")
+    private String source;
+    
+    @Column(name = "last_margin_date")
+    private LocalDate last_margin_date;
+    
+    @Column(name = "city")
+    private String city;
+    
+    @Column(name = "state")
+    private String state;
+    
+    @Column(name = "race_name")
+    private String race_name;
 
     @Column(name = "created_date")
     private LocalDate createdDate;
@@ -44,13 +62,93 @@ public class RaceInfo implements Serializable {
     private String jockey;
 
     @Column(name = "margin")
-    private Long margin;
+    private String margin;
 
     @Column(name = "penalty")
     private String penalty;
 
     @Column(name = "starting_price")
     private String startingPrice;
+    
+    private String next_race_date;
+    
+    private String next_race_time;
+    
+    private String next_race_length;
+    
+    public String getNext_race_date() {
+		return next_race_date;
+	}
+
+	public void setNext_race_date(String next_race_date) {
+		this.next_race_date = next_race_date;
+	}
+
+	public String getNext_race_time() {
+		return next_race_time;
+	}
+
+	public void setNext_race_time(String next_race_time) {
+		this.next_race_time = next_race_time;
+	}
+
+	public String getNext_race_length() {
+		return next_race_length;
+	}
+
+	public void setNext_race_length(String next_race_length) {
+		this.next_race_length = next_race_length;
+	}
+    
+    
+
+    public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getRace_name() {
+		return race_name;
+	}
+
+	public void setRace_name(String race_name) {
+		this.race_name = race_name;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public LocalDate getLast_margin_date() {
+		return last_margin_date;
+	}
+
+	public void setLast_margin_date(LocalDate last_margin_date) {
+		this.last_margin_date = last_margin_date;
+	}
+
+	public Long getRace_id() {
+		return race_id;
+	}
+
+	public void setRace_id(Long race_id) {
+		this.race_id = race_id;
+	}
     
     public Long getId() {
         return id;
@@ -140,16 +238,16 @@ public class RaceInfo implements Serializable {
         this.jockey = jockey;
     }
 
-    public Long getMargin() {
+    public String getMargin() {
         return margin;
     }
 
-    public RaceInfo margin(Long margin) {
+    public RaceInfo margin(String margin) {
         this.margin = margin;
         return this;
     }
 
-    public void setMargin(Long margin) {
+    public void setMargin(String margin) {
         this.margin = margin;
     }
 

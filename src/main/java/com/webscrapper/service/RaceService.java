@@ -4,6 +4,8 @@ import com.webscrapper.domain.Race;
 
 import java.util.List;
 
+import org.json.JSONException;
+
 /**
  * Service Interface for managing Race.
  */
@@ -21,16 +23,18 @@ public interface RaceService {
      *  Get all the races.
      *  
      *  @return the list of entities
+     * @throws JSONException 
      */
-    List<Race> findAll();
+    List<Race> findAll() throws JSONException;
 
     /**
      *  Get the "id" race.
      *
      *  @param id the id of the entity
      *  @return the entity
+     * @throws JSONException 
      */
-    Race findOne(Long id);
+    void findByState(String state) throws JSONException;
 
     /**
      *  Delete the "id" race.
@@ -38,4 +42,6 @@ public interface RaceService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+    
+    void saveJson();
 }
