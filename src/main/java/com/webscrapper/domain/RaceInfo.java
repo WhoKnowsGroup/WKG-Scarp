@@ -34,6 +34,9 @@ public class RaceInfo implements Serializable {
     @Column(name = "last_margin_date")
     private LocalDate last_margin_date;
     
+    @Column(name = "previous_margin")
+    private String previous_margin;
+    
     @Column(name = "city")
     private String city;
     
@@ -75,8 +78,8 @@ public class RaceInfo implements Serializable {
     private String next_race_time;
     
     private String next_race_length;
-    
-    public String getNext_race_date() {
+
+	public String getNext_race_date() {
 		return next_race_date;
 	}
 
@@ -116,6 +119,14 @@ public class RaceInfo implements Serializable {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public String getPrevious_margin() {
+		return previous_margin;
+	}
+
+	public void setPrevious_margin(String previous_margin) {
+		this.previous_margin = previous_margin;
 	}
 
 	public String getRace_name() {
@@ -312,4 +323,6 @@ public class RaceInfo implements Serializable {
             ", startingPrice='" + startingPrice + "'" +
             '}';
     }
+
+	
 }

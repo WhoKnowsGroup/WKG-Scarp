@@ -5,11 +5,13 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import org.json.JSONException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import com.webscrapper.repository.RaceInfoRepository;
 import com.webscrapper.service.HorseService;
 import com.webscrapper.service.RaceInfoService;
 import com.webscrapper.service.RaceService;
@@ -33,6 +35,9 @@ public class ScheduledTasks {
     @Inject
     private RaceInfoService service;
     
+	@Inject
+    private RaceInfoRepository raceinfoRepository;
+    
     @Inject
     private RaceService raceService;
     
@@ -41,14 +46,15 @@ public class ScheduledTasks {
     
     /**
      * Note the cron rejex to schedule to execute at 10 pm
+     * @throws JSONException 
      */
-    @Scheduled(cron = "0/50 * * * * *")
-    public void sendDailyJournalSummaryEmail() {
+    @Scheduled(cron = "0/20 * * * * *")
+    public void sendDailyJournalSummaryEmail() throws JSONException {
         log.info("The scheduled task to send email notificaitons - begins @ ", dateFormat.format(new Date()));
         /*RacingAustraliaSiteScrapper scrap =new RacingAustraliaSiteScrapper(service, raceService);
         scrap.readWebsite();*/
         
-        PuntersDataScraper punter = new PuntersDataScraper();
+        PuntersDataScraper punter = new PuntersDataScraper(service, raceService, raceinfoRepository);
         punter.readWebsite();
 
         /*RAHorseDataScrapper scrapHorse=new RAHorseDataScrapper(horseService);

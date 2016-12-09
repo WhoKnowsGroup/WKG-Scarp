@@ -18,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
+import io.advantageous.boon.core.Sys;
+
 import javax.inject.Inject;
 
 import java.io.FileInputStream;
@@ -25,7 +27,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -69,78 +73,105 @@ public class RaceServiceImpl implements RaceService{
      * @throws JSONException 
      */
     @Transactional(readOnly = true) 
-    public List<Race> findAll() throws JSONException {
+    public void findAll() throws JSONException {
         log.debug("Request to get all Races");
-        List<Race> result = raceRepository.findAll();
+        List<Race> all_race_result = raceRepository.findAll();
+        System.err.println("total size"+all_race_result.size());
+        JSONObject mainObject = new JSONObject();
+        JSONArray racesArray = new JSONArray();
         
-        JSONArray raceJson = new JSONArray();
-        JSONArray races = new JSONArray();
-       
-        
-        for (Race race : result) {
-           
-           Long race_id = race.getId();
-           List<RaceInfo> raceInfo = raceInfoService.findByRaceId(race_id);
-//           System.out.println("Race Id"+race_id);
-//           System.out.println("Race Id"+raceInfo.size());
-           
-          // JSONObject eachRace = new JSONObject();
-           JSONObject eachRace = new JSONObject();
-           eachRace.put("raceCourseName", race.getRaceName());
-           eachRace.put("scheduledDate", race.getRaceDate());  
-           eachRace.put("numberOfRaces",result.size());
-           eachRace.put("state", race.getState());
-           
-          
-           
-//           JSONObject racesObject = new JSONObject();
-                      
-           JSONObject horsesObject = new JSONObject();
-           JSONArray horses = new JSONArray();
-           
-           
-           
-           for (RaceInfo raceinfo : raceInfo) {
-        	  
-        	   JSONObject horse = new JSONObject();
-        	   horse.put("horseName",raceinfo.getHorseName());
-        	   horse.put("margin",raceinfo.getMargin());
-        	   horse.put("trainer",raceinfo.getTrainer());
-        	   horse.put("jockey",raceinfo.getJockey());
-        	   horse.put("source",raceinfo.getSource());
-        	  
-        	   horses.put(horse);
-           }
-           
-           horsesObject.put("raceNumber",race.getId());
-           horsesObject.put("horses",horses);
-           
-           races.put(horsesObject);
-           
-           eachRace.put("races", races);
-           
-           raceJson.put(eachRace);
-          
+        Map<String, List<Race>> test = new HashMap<String, List<Race>>();
+        for(Race single_race :all_race_result){
+        	
+        	  mainObject.put("raceCourseName",single_race.getCity());
+              mainObject.put("scheduledDate", single_race.getRaceDate());  
+              //mainObject.put("numberOfRaces",raceByState.size());
+              mainObject.put("state",single_race.getState() );
+              
+              StringBuilder result = new StringBuilder();
+              result.append(single_race.getState());
+              result.append(",");
+              result.append(single_race.getCity());
+              result.append(",");
+              result.append(single_race.getRaceDate());
+              mainObject.put("id",result);
+              
+              
+              
+            /*  for (Race race : raceByState) {*/
+              	
+              	 Long race_id = single_race.getId();
+              	 List<RaceInfo> raceInfo = raceInfoService.findByRaceId(race_id);
+              	 
+              	 
+              	 JSONArray horses = new JSONArray();
+              	 
+              	 for (RaceInfo raceinfo : raceInfo) {
+                	   JSONObject horse = new JSONObject();
+                	   horse.put("horseName",raceinfo.getHorseName());
+                	   
+                	   horse.put("margin",raceinfo.getMargin());
+                	   horse.put("trainer",raceinfo.getTrainer());
+                	   horse.put("jockey",raceinfo.getJockey());
+                	   horse.put("previousRace",raceinfo.getSource().toString());
+                     horse.put("previousMargin",raceinfo.getPrevious_margin());
+                	 
+                	   List<RaceInfo> lastTenraces = raceinfoRepository.findByLastTenRaces(raceinfo.getHorseName());
+                	   List<RaceInfo> lastDate = raceinfoRepository.lastRaceDate(raceinfo.getHorseName());
+              	   
+                	   horse.put("lastRaceDate", lastDate.get(0).getCreatedDate());
+            	          	   
+                	   StringBuilder position = new StringBuilder();
+                	   for (RaceInfo lastTenrace : lastTenraces) {
+                		     if(lastTenrace.getFinishPosition() == null){
+                		    	position.append("x");
+                	          }else{  
+                	        	position.append(lastTenrace.getFinishPosition());
+                	          }
+                	   } 
+                	   
+                     horse.put("lastTenRaces",position);
+                	   horses.put(horse);
+                   }
+              	 
+              	 
+              	 
+              	
+               	 JSONObject raceObject = new JSONObject();
+                 
+               	 //raceObject.put("raceNumber",raceByState.indexOf(race)+1);
+               	 raceObject.put("horses",horses);
+              	
+               	 racesArray.put(raceObject);
+              /*}*/
+             
+              mainObject.put("races",racesArray );
+              
+        	
         }
-       
-         //eachRace.put("races", races);
-         //raceJson.put(eachRace);
-//        System.out.println("races"+raceJson);
-		
-     
-          try {
-				FileWriter file = new FileWriter("D:/file.txt");
-				file.write(raceJson.toString());
-				System.err.println("File created!");
-				file.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			System.out.println("Successfully Copied JSON Object to File...");
-
-        return result;
+      
+        System.err.println("races array"+mainObject);
+        
+           /*  try {
+            	    String fileLocation = "D:/"+state +".txt";
+    				FileWriter file = new FileWriter(fileLocation);
+    				file.write(mainObject.toString());
+    				System.err.println("File created!");
+    				file.close();
+    			} catch (IOException e) {
+    				// TODO Auto-generated catch block
+    				e.printStackTrace();
+    			}*/
+//    			System.out.println("Successfully Copied JSON Object to File...");
+        fullJson.put(mainObject);
+        
+        
+        
+        return;
     }
+    
+    
+    
     
     
     
@@ -149,7 +180,7 @@ public class RaceServiceImpl implements RaceService{
         log.debug("Request to get Race in service : {}", state);
         List<Race> raceByState = raceRepository.findByState(state);
         
-        
+        System.err.println("ize=============>"+raceByState.size());
 //        JSONArray mainArray = new JSONArray();
         JSONObject mainObject = new JSONObject();
         JSONArray racesArray = new JSONArray();
@@ -180,19 +211,31 @@ public class RaceServiceImpl implements RaceService{
         	 for (RaceInfo raceinfo : raceInfo) {
           	   JSONObject horse = new JSONObject();
           	   horse.put("horseName",raceinfo.getHorseName());
+          	   
           	   horse.put("margin",raceinfo.getMargin());
           	   horse.put("trainer",raceinfo.getTrainer());
           	   horse.put("jockey",raceinfo.getJockey());
           	   horse.put("previousRace",raceinfo.getSource().toString());
+               horse.put("previousMargin",raceinfo.getPrevious_margin());
           	 
           	   List<RaceInfo> lastTenraces = raceinfoRepository.findByLastTenRaces(raceinfo.getHorseName());
           	   List<RaceInfo> lastDate = raceinfoRepository.lastRaceDate(raceinfo.getHorseName());
+          	   
+          	  // horse.put("previousmargin",lastTenraces.get(0).getMargin());
+          	   
+           	 /*  if(lastDate.size() <= 1){
+          		 horse.put("previousMargin","0");
+          	   }else{
+          	       System.err.println("====>in construction f previous marfgni"+lastTenraces.get(1).getMargin());
+          		   horse.put("previousMargin",lastTenraces.get(1).getMargin());
+          	   }*/
+          	   
           	   horse.put("lastRaceDate", lastDate.get(0).getCreatedDate());
 
           	         System.err.println("Margin"+raceinfo.getMargin());
 		          	 /*for (String name : horseNames) {
 		          		 
-		          		 if(name.equals(raceinfo.getHorseName())){
+		          		 if(name.equals(raceinfo.getHorseName())){0
 		          			horse.put("previousMargin",lastTenraces.get(0).getMargin());
 		          			break;
 		          		 }else{ 
@@ -229,7 +272,7 @@ public class RaceServiceImpl implements RaceService{
         
         //System.out.println("races array"+mainObject);
         
-             try {
+             /*try {
             	    String fileLocation = "D:/"+state +".txt";
     				FileWriter file = new FileWriter(fileLocation);
     				file.write(mainObject.toString());
@@ -238,7 +281,7 @@ public class RaceServiceImpl implements RaceService{
     			} catch (IOException e) {
     				// TODO Auto-generated catch block
     				e.printStackTrace();
-    			}
+    			}*/
 //    			System.out.println("Successfully Copied JSON Object to File...");
         fullJson.put(mainObject);
         
